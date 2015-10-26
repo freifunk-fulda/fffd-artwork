@@ -1,6 +1,11 @@
 
 \usepackage[utf8]{inputenc} 															%     Umlaute direkt Eingeben Ä ä Ö ö Ü ü und @ ermöglichen
 \usepackage[T1]{fontenc}
+\newcommand{\changefont}[3]{
+\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{array}
 
 %\usepackage{AppleKeys}
 
@@ -9,6 +14,7 @@
 \usepackage{ulem}
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage{tabularx}
+\usepackage{colortbl}
 
 \usepackage{tikz}
 \usepackage{verbatim}

@@ -1,0 +1,156 @@
+
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{verbatim}
+
+% \usepackage{fontspec}
+ 
+% \setmainfont{Times New Roman}
+
+
+% drawing parameters
+\newcommand{\circdist}{1.2}  % distance from origin to center of circles
+\newcommand{\circrad}{7/4} % radius of the circles
+\newcommand{\circlethickness}{6mm} % uh, thickness of the circles
+
+% distance from the origin to the three "interior" intersections
+\pgfmathsetmacro{\intrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) - \circdist/2}
+
+% distance from the origin to the three "exterior" intersections
+\pgfmathsetmacro{\extrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) + \circdist/2}
+
+
+\definecolor{FFgelb}{HTML}{FFB400}
+\definecolor{FFmagenta}{HTML}{DC0067}
+\definecolor{FFblau}{HTML}{009EE0}
+
+% so we can just specify an angle and get the correct color for the circle
+\colorlet{180}{FFmagenta}
+\colorlet{40}{FFmagenta}
+\colorlet{20}{FFmagenta}
+\colorlet{300}{FFmagenta}
+\colorlet{180}{FFmagenta}
+
+% draws one of our circles
+\newcommand{\mycircle}[1]{%
+  \draw[FFmagenta, double distance=\circlethickness, double=#1]
+  (#1:\circdist) circle (\circrad);}
+  
+ % draws one of our circles
+\newcommand{\freifunks}[1]{%
+  \draw[FFmagenta, double distance=2 mm, double=#1]
+  (#1:\circdist) circle (7/5);}
+  
+\newcommand{\freifunkleft}[1]{%
+  \draw[FFmagenta, double distance=2 mm, double=#1]
+  (#1:\circdist) 
+  circle (7/5);}
+
+\begin{document}
+
+\begin{center}
+
+  % \begin{tikzpicture}
+  %   \draw[yellow,line width=1cm] (0,0) circle[radius=2cm];
+  % \end{tikzpicture}
+
+\begin{tikzpicture}[scale=2]
+
+  % draw the circles
+%  \foreach \angle in {180,20}
+%  {
+%    \mycircle{\angle}
+%  }
+	\freifunkleft{180}
+	\mycircle{20}
+  \freifunks{20}
+
+  \filldraw[fill=FFgelb, color=FFgelb]
+(0,2) -- (3,2) -- (2.5,1) -- (3.5,1) -- (4.5,2.5) %
+-- (3.5,4) -- (2.5,4) -- (3,3) --(0,3)
+-- (0,2) ;
+
+  % \draw[black](0,0) {some text}
+
+  % we need to re-do two of the intersections so that the rings
+  % interlock and aren't just piled on top of one another
+  \foreach \angle/\rad in {60/\intrad, 240/\extrad}
+  {
+    \begin{scope}
+      \clip (\angle:\rad) circle (5/4*\circlethickness);
+      %                          you may need to adjust the 5/4 above so
+      %                          the clipping area is big enough
+     % \mycircle{300}
+     % \mycircle{180}
+    \end{scope}
+  }
+\end{tikzpicture}
+
+
+  \begin{tikzpicture}[overlay,remember picture]
+    \node [
+      fill=FFmagenta,% Farbe des Randstreifens
+      text=white,% Textfarbe
+      font=\normalfont\bfseries,% Einstellungen für die Schrift
+      inner xsep=1em, % Abstand des Textes von unten
+      % maximale Textbreite = Papierhöhe - 2*Abstand des Textes von unten:
+      text width={\dimexpr\paperheight-2em\relax},
+      minimum height=17mm,% Breite des Randstreifens
+      anchor=north west,
+      rotate=90
+      ]
+      at (current page.south west)
+      {fulda.freifunk.net};
+  \end{tikzpicture}%
+    \begin{tikzpicture}[overlay,remember picture]
+    \node [
+      fill=FFblau,% Farbe des Randstreifens
+      text=white,% Textfarbe
+      font=\normalfont\bfseries,% Einstellungen für die Schrift
+      inner xsep=1em, % Abstand des Textes von unten
+      % maximale Textbreite = Papierhöhe - 2*Abstand des Textes von unten:
+      text width={\dimexpr\paperheight-2em\relax},
+      minimum height=17mm,% Breite des Randstreifens
+      anchor=south east,
+      rotate=90
+      ]
+      at (current page.north east)
+      {fulda.freifunk.net};
+  \end{tikzpicture}%
+
+
+
+fulda.freifunk.net
+
+
+\begin{tikzpicture}
+\fill[green,opacity=0.5] (4.25,0) circle (0.25);
+\end{tikzpicture}
+
+
+
+
+
+\begin{tikzpicture}
+\filldraw[fill=FFgelb, color=FFgelb]
+(0,2) -- (3,2) -- (2.5,1) -- (3.5,1) -- (4.5,2.5) %
+-- (3.5,4) -- (2.5,4) -- (3,3) --(0,3)
+-- (0,2) ;
+
+%----------------------
+
+% \draw[] (0,3)--(-1,1)--(2,1)--(2,2)--(4,0) node[xshift=-7ex, align=center]{gewünschte \\ Form};
+%\draw[yscale=-1] (0,0)--(-1,1)--(2,1)--(2,2)--(4,0);
+
+\end{tikzpicture}
+
+
+
+
+
+
+
+
+\end{center}
+
+\end{document}

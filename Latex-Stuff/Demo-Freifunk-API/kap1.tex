@@ -1,0 +1,107 @@
+\section{Freifunk - API}
+
+Die übergreifende Community
+%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{http://freifunk.net/}{freifunk.net} \\
+\hline
+\end{tabular}
+%
+bietet ein API, um die Informationen der lokalen Communities auf einer gemeinsamen Plattform darstellen zu können. Um unsere Daten auf dieser Plattform bereitzustellen, sind die folgenden Schritte nötig.
+\section{Überblick}
+
+Die API wurde in Anlehnung an die Hackerspace API entwickelt und erlaubt den lokalen Communities, ihre Informationen selbst zu pflegen und - z.B. auf der eigenen Webseite - bereitzustellen. Das Format für den Datenaustausch ist JSON.
+
+\subsection{API Datei erzeugen}
+
+Der%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{http://freifunk.net/api-generator/}{API-Generator} \\
+\hline
+\end{tabular}
+%
+auf freifunk.net erlaubt die Generierung einer initialen JSON-Datei. Das Formular vollständig ausfüllen, auf \textbf{OK - Generate the full API file} klicken und das Resultat herunterladen.
+
+\subsection{API Datei verfügbar machen}
+
+Die API Datei muss über unsere Webseite im Internet verfügbar gemacht werden. Zur Zeit ist das unter%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{https://fulda.freifunk.net/FreifunkFulda-api.json}{https://fulda.freifunk.net/FreifunkFulda-api.json} \\
+\hline
+\end{tabular}
+%
+
+\subsection{In das API Directory eintragen}
+
+Der Link zur API Datei muss jetzt in das%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{https://github.com/freifunk/directory.api.freifunk.net/blob/master/directory.json}{API-Directory} \\
+\hline
+\end{tabular}
+%
+eingetragen werden. Dieses wird bei Github gepflegt. Die Eintragung kann per Pull-Request erfolgen oder über das%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{http://freifunk.net/kontakt/}{Kontaktformular auf freifunk.net} \\
+\hline
+\end{tabular}
+%
+(Betreff "Frage zur API") angestoßen werden.
+
+\section{Automatisches Aktualisieren der Informationen}
+
+Die Aktualisierung der Anzahl aktiver Knoten in Fulda übernimmt ein kleines PHP-Skript.
+
+\subsection{Installation und Konfiguration}
+Zur Zeit läuft das Skript (sowie die Freifunk Fulda Webseite) auf einem von%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{https://wiki.mag.lab.sh/wiki/Benutzer:Major}{Majors} \\
+\hline
+\end{tabular}
+%
+Servern.\\
+%			 typ     titel       Source	    Breakable from to
+\monocodebox{bash}{Clonen}{./installation.sh}{false}{2}{3}
+
+\monocodebox{php}{Skript konfigurieren (/opt/ff-api-updater/ff-api-update.php)}{./ff-api-update.php}{false}{1}{99999}
+
+\monocodebox{shell}{Cron-Job}{./installation.sh}{false}{6}{6}
+
+\monocodebox{shell}{\ }{./installation.sh}{false}{8}{8}
+
+\section{Statische Inhalte der API Datei anpassen}
+
+Wie bei%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{https://wiki.mag.lab.sh/wiki/Freifunk_Fulda/Freifunk_API#API_Datei_erzeugen}{#API Datei erzeugen} \\
+\hline
+\end{tabular}
+%
+ nutzt man den%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{http://freifunk.net/api-generator/}{API-Generator auf freifunk.net} \\
+\hline
+\end{tabular}
+%
+, allerdings mit dem Unterschied, dass man vorher das API file von%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{https://fulda.freifunk.net/FreifunkFulda-api.json}{https://fulda.freifunk.net/FreifunkFulda-api.json} \\
+\hline
+\end{tabular}
+%
+kopiert und dann auf \textbf{JSON to form} klickt. Danach aktualisiert man alle Daten, die man ändern möchte (node-Daten werden dank des Scripts automatisch aktualisiert) und klickt dann auf \textbf{OK - Generate the full API file} klicken und das Resultat herunterladen. Danach fährt man mit%
+\begin{tabular}{c}
+\arrayrulecolor{FFmagenta} \hline
+\href{https://wiki.mag.lab.sh/wiki/Freifunk_Fulda/Freifunk_API#API_Datei_verf.C3.BCgbar_machen}{#API Datei verfügbar machen} \\
+\hline
+\end{tabular}
+%
+fort.

@@ -1,5 +1,6 @@
-
 \usepackage[utf8]{inputenc} 															%     Umlaute direkt Eingeben Ä ä Ö ö Ü ü und @ ermöglichen
+
+\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \newcommand{\changefont}[3]{
 \fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
@@ -33,8 +34,17 @@
 \includegraphics[width=\paperwidth,height=\paperheight]{./Bilder/bgMitschift.pdf}%
 \vfill
 }}}
+
+\usepackage{array,arydshln}
+\setlength\dashlinedash{0.2pt}
+\setlength\dashlinegap{1.5pt}
+\setlength\arrayrulewidth{0.3pt}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\usepackage{soul}
+
 																								%==============================================================================
 % =======  SCHRIFTEN ========================
+\oddsidemargin-10mm
 \usepackage{empheq}
 \usepackage[ngerman]{babel} 																	% deutsche Babel
 \usepackage{pxfonts,txfonts,upgreek,} 															% einige mathe symbole plus schöne schrift
@@ -45,6 +55,8 @@
 
 \usepackage[all]{tcolorbox}
 \tcbuselibrary{breakable}
+\usepackage{xcolor}
+\usepackage{framed}
 
 % --------------          Eingekreiste zeichen ----------
 \newcommand*\kreis[1]{\unitlength1ex\begin{picture}(2.5,2.5)%
@@ -170,7 +182,7 @@
  enhanced=true,
  colframe = monoblack,
  drop fuzzy shadow,
- colback = black,
+ colback = black
  ]{#2}%
  
 

@@ -1,0 +1,324 @@
+\documentclass[11pt, a4paper,ngerman]{article}
+
+\usepackage{./../freifunk}
+\AddToShipoutPicture{\BackgroundPic}    
+
+
+% Parameter
+\newcommand{\circdist}{1.2}  % Strecke center zum Mittelpunkt der Kreise
+\newcommand{\circrad}{7/4} % radius der Kreise
+\newcommand{\circlethickness}{6mm} % Dicke
+
+
+% Definition der Freifunk Farben
+
+\definecolor{FFgelb}{HTML}{FFB400}  
+\definecolor{FFmagenta}{HTML}{DC0067}
+\definecolor{FFblau}{HTML}{009EE0}
+
+% Farbwahl über Winkel
+
+\colorlet{20}{FFmagenta}
+\colorlet{180}{FFmagenta}
+
+% ====================================================================
+%
+%         Die 3 verschiedenen Kreise
+%
+% ====================================================================
+
+\newcommand{\mycircle}[1]{%
+  \draw[FFmagenta, double distance=\circlethickness, double=#1]
+  (#1:\circdist) circle (\circrad);}
+  
+
+\newcommand{\freifunks}[1]{%
+  \draw[FFmagenta, double distance=2 mm, double=#1]
+  (#1:\circdist) circle (7/5);}
+  
+\newcommand{\freifunkleft}[1]{%
+  \draw[FFmagenta, double distance=2 mm, double=#1]
+  (#1:\circdist) 
+  circle (7/5);}
+
+% ====================================================================
+%
+%         Dokumenten-Anfang
+%
+% ====================================================================
+\changefont{pag}{m}{n}
+\pagestyle{empty} 
+\begin{document}
+% \color{white}
+% \AtPageUpperLeft{
+% \includegraphics[height=23mm,width=50mm]{./refugees-welcome.png}\\
+% }
+
+% \frame{
+% Text mit Hintergrundbild.
+% }
+
+% ====================================================================
+%
+%         Linke Seite Streifen
+%
+% ====================================================================
+    % \begin{tikzpicture}[overlay, remember picture]
+    % \node[yshift=-3cm] at (current page.north west){
+    % \draw[fill=FFgraue] (0,0) rectangle (\paperwidth,3cm);
+    %       };
+%     \node [
+%       fill=FFgraue,% Farbe des Randstreifens
+%       text=white,% Textfarbe
+%       font=\normalfont\bfseries,% Einstellungen für die Schrift
+%       inner xsep=1em, % Abstand des Textes von unten
+%       % maximale Textbreite = Papierhöhe - 2*Abstand des Textes von unten:
+%       text width={\dimexpr\paperheight-2em\relax},
+%       minimum height=297mm,% Breite des Randstreifens
+%       anchor=north west,
+%       rotate=0
+%       ]
+%       at (current page.north west)
+%       {};
+% \includegraphics[height=23mm,width=500mm]{./refugees-welcome.png
+%       \begin{textblock*}{50mm}(70mm,110mm)
+% % \includegraphics[height=23mm,width=500mm]{./refugees-welcome.png}\\
+% \color{white}
+% test\\
+% \end{textblock*}
+
+
+  %     \node [
+  %     fill=FFblau,% Farbe des Randstreifens
+  %     text=white,% Textfarbe
+  %     font=\normalfont\bfseries,% Einstellungen für die Schrift
+  %     inner xsep=1em, % Abstand des Textes von unten
+  %     % maximale Textbreite = Papierhöhe - 2*Abstand des Textes von unten:
+  %     text width={\dimexpr\paperheight-2em\relax},
+  %     minimum height=155mm,% Breite des Randstreifens
+  %     anchor=north west,
+  %     rotate=35
+  %     ]
+  %     at (current page.south west)
+  %     {fulda.freifunk.net};
+  % \end{tikzpicture}%
+
+  %   \begin{tikzpicture}[overlay,remember picture]
+  %   \node [
+  %     fill=FFblau,% Farbe des Randstreifens
+  %     text=white,% Textfarbe
+  %     font=\normalfont\bfseries,% Einstellungen für die Schrift
+  %     inner xsep=1em, % Abstand des Textes von unten
+  %     % maximale Textbreite = Papierhöhe - 2*Abstand des Textes von unten:
+  %     text width={\dimexpr\paperheight-2em\relax},
+  %     minimum height=155mm,% Breite des Randstreifens
+  %     anchor=north west,
+  %     rotate=35
+  %     ]
+  %     at (current page.south west)
+  %     {fulda.freifunk.net};
+  % \end{tikzpicture}%
+
+
+
+% ====================================================================
+%
+%         Rechte Seite Streifen
+%
+% ====================================================================
+
+% \begin{tikzpicture}[overlay,remember picture]
+%     \node [
+%       fill=FFgelb,% Farbe des Randstreifens
+%       text=white,% Textfarbe
+%       font=\normalfont\bfseries,% Einstellungen für die Schrift
+%       inner xsep=1em, % Abstand des Textes von unten
+%       % maximale Textbreite = Papierhöhe - 2*Abstand des Textes von unten:
+%       text width={\dimexpr\paperheight-1em\relax},
+%       minimum height=25mm,% Breite des Randstreifens
+%       anchor=north,
+%       rotate=270
+%       ]
+%       at (current page.east){\rotatebox{180}{}};
+
+
+%       % \node[anchor=east, rotate=90] at (current page.east) {};
+% \end{tikzpicture}
+
+% \begin{tikzpicture}[overlay,remember picture]
+%     \node [
+%       fill=white,% Farbe des Randstreifens
+%       text=white,% Textfarbe
+%       font=\normalfont\bfseries,% Einstellungen für die Schrift
+%       inner xsep=1em, % Abstand des Textes von unten
+%       % maximale Textbreite = Papierhöhe - 2*Abstand des Textes von unten:
+%       text width={\dimexpr\paperheight-1em\relax},
+%       minimum height=20mm,% Breite des Randstreifens
+%       anchor=north,
+%       rotate=270
+%       ]
+%       at (current page.east){\rotatebox{180}{}};
+
+
+%       % \node[anchor=east, rotate=90] at (current page.east) {};
+% \end{tikzpicture}
+
+% \begin{tikzpicture}[overlay,remember picture]
+%     \node [
+%       fill=FFmagenta,% Farbe des Randstreifens
+%       text=white,% Textfarbe
+%       font=\normalfont\bfseries,% Einstellungen für die Schrift
+%       inner xsep=1em, % Abstand des Textes von unten
+%       % maximale Textbreite = Papierhöhe - 2*Abstand des Textes von unten:
+%       text width={\dimexpr\paperheight-1em\relax},
+%       minimum height=15mm,% Breite des Randstreifens
+%       anchor=north,
+%       rotate=270
+%       ]
+%       at (current page.east){\rotatebox{180}{Einrichten eines: TP-LINK WDR 4300 v1.0}};
+
+
+%       % \node[anchor=east, rotate=90] at (current page.east) {};
+% \end{tikzpicture}
+
+
+
+
+
+
+% {\begin{tikzpicture}
+%     \node[yshift=-8cm] at (current page.north west)
+%       {\begin{tikzpicture}[remember picture, overlay]
+%         \draw[fill=FFmagenta] (0,0) rectangle
+%           (\paperwidth,3cm);
+%        \end{tikzpicture}
+%       };
+
+
+%    \end{tikzpicture}
+
+
+
+
+
+
+
+% ====================================================================
+%
+%         Inhalt (Mitte)
+%
+% ====================================================================
+
+\begin{center}
+\begin{turn}{0}
+\scalebox{1}{
+\begin{tikzpicture}[scale=2]
+    % Kreis schmal links
+\freifunkleft{180}
+
+  % Kreis schmal rechts
+  \freifunks{20}
+
+  % Kreis fett rechts
+  \mycircle{20}
+
+    % Pfeil links
+ 
+ \filldraw[fill=FFgelb, color=FFgelb]%
+ %oben
+(-5.25em,0.65em) -- (-4.0em,0.65em) -- (-4.75em,1.25em) -- (-4.25em,1.25em) -- %
+%
+(-3.25em,0.5em) % Spitze
+%
+% unten
+-- (-4.25em,-0.27em) -- (-4.75em,-0.27em) -- (-4.0em,0.37em) %--(-6.25em,-5.0em)
+-- (-5.25em,0.37em) ;
+
+  % Pfeil rechts
+
+  \filldraw[fill=FFgelb, color=FFgelb]
+(5em,0.0em) -- (2.5em,0em) -- (3.0em,-1em) -- (2em,-1em) -- (1em,0.5em) %
+-- (2em,2em) -- (3em,2em) -- (2.5em,1em) --(5em,1em)
+-- (5em,0em) ;
+
+\end{tikzpicture}
+
+
+% Schriftzug Mitte
+
+% \huge{fulda.freifunk.net}
+}
+\end{turn} 
+
+
+\color{white}
+\vspace{0.5cm}
+$\ \ $ \\
+\huge{Freifunk Fulda }\\
+\vspace{0.75cm}
+\includegraphics[height=50mm,width=50mm]{./refugees-welcome.png}\\
+% \includegraphics[height=50mm,width=50mm]{./refugees-welcome.png}\\
+\end{center}
+
+
+\begin{textblock*}{500mm}(0mm,170mm)
+\includegraphics[height=160mm,width=225mm]{./maxBahrbottom.png}\\
+% \color{white}
+\end{textblock*}
+
+% \begin{textblock*}{30mm}(160mm,10mm)
+% \includegraphics[height=30mm,width=39mm]{./FFLogo.png}\\
+% % \color{white}
+% \end{textblock*}
+
+% 666 × 512
+% \begin{textblock*}{50mm}(70mm,110mm)
+% % \includegraphics[height=23mm,width=500mm]{./refugees-welcome.png}\\
+% \color{white}
+% test\\
+% \end{textblock*}
+% \begin{textblock*}{50mm}(10mm,10mm)
+% \includegraphics[height=50mm,width=50mm]{./refugees-welcome.png}\\
+% % \color{white}
+% \end{textblock*}
+
+
+\newpage
+% \Huge{}fulda.freifunk.net
+\begin{textblock*}{30mm}(165mm,5mm)
+\includegraphics[height=30mm,width=39mm]{./FFLogo.png}\\
+% \color{white}
+\end{textblock*}
+
+
+
+% \begin{textblock*}{30mm}(170mm,10mm)
+% \includegraphics[height=30mm,width=30mm]{./refugees-welcome.png}\\
+% % \color{white}
+% \end{textblock*}
+
+
+\color{white}
+
+\input{kap1.tex}
+\input{kap2.tex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

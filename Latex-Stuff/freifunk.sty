@@ -7,7 +7,9 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{array}
-
+\usepackage{grid-system}  % mehrere spalten
+\usepackage[absolute]{textpos} % benutzt um Bilder positionieren
+\usepackage{svg}
 %\usepackage{AppleKeys}
 
 \usepackage{fullpage}
@@ -31,7 +33,7 @@
 \parbox[b][\paperheight]{\paperwidth}{%
 \vfill
 \centering																						% Hintergrund auf Vollbind und includieren
-\includegraphics[width=\paperwidth,height=\paperheight]{./Bilder/bgMitschift.pdf}%
+\includegraphics[width=\paperwidth,height=\paperheight]{./Freifunk.pdf}%
 \vfill
 }}}
 
@@ -81,9 +83,16 @@
 \definecolor{darkgreen}{RGB}{82,130,179}
 
 
-\definecolor{FFgelb}{HTML}{FFB400}
+% Definition der Freifunk Farben
+
+\definecolor{FFgelb}{HTML}{FFB400}  
 \definecolor{FFmagenta}{HTML}{DC0067}
 \definecolor{FFblau}{HTML}{009EE0}
+\definecolor{FFgrau}{HTML}{979797}
+\definecolor{FFgraud}{HTML}{1e1e1e}
+\definecolor{FFgraue}{HTML}{3c3c3c}
+
+\usepackage{rotating}
 
 % FF gelb
 % color: #ffb400 \\
